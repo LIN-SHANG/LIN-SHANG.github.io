@@ -4,6 +4,16 @@
     <title>Lynn Lawson</title>
     <link>https://LIN-SHANG.github.io/</link>
     <description>Recent content on Lynn Lawson</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://LIN-SHANG.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language><atom:link href="https://LIN-SHANG.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://LIN-SHANG.github.io/post/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://LIN-SHANG.github.io/post/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
+      <description>这是我的第一篇博客 我的名字叫做雷尚霖，是一名热爱AI技术的工科生。</description>
+    </item>
+    
   </channel>
 </rss>
