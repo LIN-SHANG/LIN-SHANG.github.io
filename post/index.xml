@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Lynn Lawson</title>
+    <link>https://LIN-SHANG.github.io/post/</link>
+    <description>Recent content in Posts on Lynn Lawson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://LIN-SHANG.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://LIN-SHANG.github.io/post/firstblog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://LIN-SHANG.github.io/post/firstblog/</guid>
+      <description> title: &amp;ldquo;Firstblog&amp;rdquo; date: 2021-03-27T18:14:01+08:00 draft: true 这是我的第一篇博客 </description>
+    </item>
+    
+  </channel>
+</rss>
