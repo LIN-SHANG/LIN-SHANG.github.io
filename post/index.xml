@@ -6,14 +6,33 @@
     <description>Recent content in Posts on Lynn Lawson</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 27 Mar 2021 23:01:30 +0800</lastBuildDate><atom:link href="https://LIN-SHANG.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Apr 2021 12:36:37 +0800</lastBuildDate><atom:link href="https://LIN-SHANG.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>这个是我的第一篇博客。</title>
-      <link>https://LIN-SHANG.github.io/post/firstblog/</link>
-      <pubDate>Sat, 27 Mar 2021 23:01:30 +0800</pubDate>
+      <title>毕设设计思路</title>
+      <link>https://LIN-SHANG.github.io/post/%E6%AF%95%E8%AE%BE%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/</link>
+      <pubDate>Mon, 05 Apr 2021 12:36:37 +0800</pubDate>
       
-      <guid>https://LIN-SHANG.github.io/post/firstblog/</guid>
-      <description></description>
+      <guid>https://LIN-SHANG.github.io/post/%E6%AF%95%E8%AE%BE%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/</guid>
+      <description>简介 主要介绍了我的中南大学的毕业设计思路，目前详细阅读了 Multimodal Transformer for Unaligned Multimodal Language Sequences和Learning Modality-Specific Representations with Self-Supervised Multi-Task Learning for Multimodal Sentiment Analysis,毕设想要综合两者的方法，对多模态情感信息(文本、语音和视频)进行情感识别,基本想法是采用第一篇文章中的crossmodal建立起跨模态的长程依赖，让模态信息特征不过于单一，优化特征表示，再用self-mm机制进行自监督学习，进一步减少多模态和单模态预测的差值，进而提高最终的预测结果。
+目前跑通了第一篇的代码，正在捋顺第二篇的逻辑，这篇blog里暂时行文比较混乱和粗糙，大致流程为：
+介绍了基本数据集，
+由于用的数据集是经过CMU研究人员处理过的，介绍了处理的方法，
+接着介绍了ULGM自监督方法，第二篇的思路，以及我的困惑。
+数据集 CMU-MOSI数据集 CMU-MOSI是一个人类多模态情感分析数据集，它由2199个短的独白视频剪辑片段构成，每个剪辑片段持续一整个序列。CMU-MOSI数据集中的声音和视觉特征分别以12.5和15hz从剪辑片段中采集。（文本数据已经被逐字分割，且已经被glove embedding方法映射成特征向量。
+CMU-MOSEI数据集 CMU-MOSEI也是一个情感分析数据集，它由23454个Youtube上面的影评视频剪辑而成。（数据量大概是CMU-MOSI的10倍。未对齐的CMU-MOSEI序列数据集中的声音和视觉特征分别以20Hz和15hz的频率从剪辑视频中采集。
+CMU-MOSI &amp;amp; CMU-MOSEI数据集说明 不论是对于CMU-MOSI还是CMU-MOSEI数据，实验人员已经对其中的每个样本都以-3到+3的情感进行了打分。（其中-3代表的是强烈负面情绪，+3代表的是强烈正面情绪）。
+同时，我们使用不同的度量标准来对模型进行评估，这些度量标准与之前工作中使用的保持一致：7分类准确率，2分类准确率，F1 分值，绝对平均误差以及模型类人关联率。
+IEMOCAP数据集 IEMOCAP是一个由10000个视频组成的人类情感分析数据集。情感标签一共有四种（happy,sad,angry &amp;amp; neutral)。不同于CMU-MOSI和CMU-MOSEI，这是一个多标签任务。IEMOCAP数据集中的声音和视觉特征分别以12.5和15hz从剪辑片段中采集。
+特征提取 语言文本 通过预训练的Glove word embedding方法将词语映射成为300维的向量。
+视觉特征 使用Facet方法预测了35个面部动作单元，这记录了面部肌肉的移动以代表每帧图像的基本和高级情感。
+声音特征 使用COVAREP来提取低维的声音特征。该特征包括12个Mel倒谱系数、基音跟踪和浊音/清音分割特征、声门源参数、峰值斜率参数和最大频散系数。特征维数为74.
+ULGM ULGM方法基于多模态情感标注和模态特征表示来产生单一模态的监督值。为了避免来自网络参数更新而产生的不必要的干扰，ULGM方法被设计为一个无参数的模块。通常来讲，单一模态的监督值同多模态标签高度关联。因此，ULGM方法根据模态特征表示到聚类中心的相对距离值来计算偏差值。
+相对距离值 由于不同模态的存在于不同的特征空间，用绝对距离值往往不准确。因此，我们提出一种同特征空间差别关联不大的相对距离值来表征偏差。首先，在训练过程中，我们计算不同模态的正情感中心$(C^p_i)$和负情感中心$(C^n_i)$：
+$$ C^p_i=\frac{\sum^N_{j=1}I(y_i(j)&amp;gt;0)\cdot F^g_{ij}}{\sum^N_{j=1}I(y_i(j)&amp;gt;0)}\tag{1} $$
+$$ C^n_i=\frac{\sum^N_{j=1}I(y_i(j)&amp;lt;0)\cdot F^g_{ij}}{\sum^N_{j=1}I(y_i(j)&amp;lt;0)}\tag{2} $$
+式中$i\in{m,t,a,v}$,$N$是训练样本的个数，$I(\cdot)$是指示器函数。$F^g_{ij}$是第$i$个模态中第$j$个样本的全局特征表示。
+对于模态特征表示，我们使用$L2$ 归一化来计算$F^_i$和聚类中心的距离： $$ D^p_i = \frac{||F^_i-C^p_i||^2_2}{\sqrt{d_i}} \tag{3} $$
+$$ D^n_i = \frac{||F^*_i-C^n_i||^2_2}{\sqrt{d_i}} \tag{4} $$</description>
     </item>
     
   </channel>
