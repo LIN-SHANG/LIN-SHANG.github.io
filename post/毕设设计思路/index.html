@@ -22,7 +22,7 @@
 CMU-MOSEI数据集 CMU-MOSEI也是一个情感分析数据集，它由23454个Youtube上面的影评视频剪辑而成。（数据量大概是CMU-MOSI的10倍。未对齐的CMU-MOSEI序列数据集中的声音和视觉特征分别以20Hz和15hz的频率从剪辑视频中采集。
 CMU-MOSI &amp; CMU-MOSEI数据集说明 不论是对于CMU-MOSI还是CMU-MOSEI数据，实验人员已经对其中的每个样本都以-3到&#43;3的情感进行了打分。（其中-3代表的是强烈负面情绪，&#43;3代表的是强烈正面情绪）。
 同时，我们使用不同的度量标准来对模型进行评估，这些度量标准与之前工作中使用的保持一致：7分类准确率，2分类准确率，F1 分值，绝对平均误差以及模型类人关联率。
-IEMOCAP数据集 IEMOCAP是一个由10000个视频组成的人类情感分析数据集。情感标签一共有四种（happy,sad,angry &amp; neutral)。不同于CMU-MOSI和CMU-MOSEI，这是一个多标签任务。IEMOCAP数据集中的声音和视觉特征分别以12.5和15hz从剪辑片段中采集。
+IEMOCAP数据集 IEMOCAP是一个由10000个视频组成的人类情感分析数据集。情感标签一共有四种(happy,sad,angry &amp; neutral)。不同于CMU-MOSI和CMU-MOSEI，这是一个多标签任务。IEMOCAP数据集中的声音和视觉特征分别以12.5和15hz从剪辑片段中采集。
 特征提取 语言文本 通过预训练的Glove word embedding方法将词语映射成为300维的向量。
 视觉特征 使用Facet方法预测了35个面部动作单元，这记录了面部肌肉的移动以代表每帧图像的基本和高级情感。
 声音特征 使用COVAREP来提取低维的声音特征。该特征包括12个Mel倒谱系数、基音跟踪和浊音/清音分割特征、声门源参数、峰值斜率参数和最大频散系数。特征维数为74.
@@ -31,7 +31,7 @@ ULGM ULGM方法基于多模态情感标注和模态特征表示来产生单一�
 $$ C^p_i=\frac{\sum^N_{j=1}I(y_i(j)&gt;0)\cdot F^g_{ij}}{\sum^N_{j=1}I(y_i(j)&gt;0)}\tag{1} $$
 $$ C^n_i=\frac{\sum^N_{j=1}I(y_i(j)&lt;0)\cdot F^g_{ij}}{\sum^N_{j=1}I(y_i(j)&lt;0)}\tag{2} $$
 式中$i\in{m,t,a,v}$,$N$是训练样本的个数，$I(\cdot)$是指示器函数。$F^g_{ij}$是第$i$个模态中第$j$个样本的全局特征表示。
-对于模态特征表示，我们使用$L2$ 归一化来计算$F^_i$和聚类中心的距离： $$ D^p_i = \frac{||F^_i-C^p_i||^2_2}{\sqrt{d_i}} \tag{3} $$
+对于模态特征表示，我们使用$L2$ 归一化来计算$F_i^*$ $$ D^p_i = \frac{||F^*_i-C^p_i||^2_2}{\sqrt{d_i}} \tag{3} $$
 $$ D^n_i = \frac{||F^*_i-C^n_i||^2_2}{\sqrt{d_i}} \tag{4} $$"/>
 
     <meta property="og:title" content="毕设设计思路" />
@@ -44,7 +44,7 @@ $$ D^n_i = \frac{||F^*_i-C^n_i||^2_2}{\sqrt{d_i}} \tag{4} $$"/>
 CMU-MOSEI数据集 CMU-MOSEI也是一个情感分析数据集，它由23454个Youtube上面的影评视频剪辑而成。（数据量大概是CMU-MOSI的10倍。未对齐的CMU-MOSEI序列数据集中的声音和视觉特征分别以20Hz和15hz的频率从剪辑视频中采集。
 CMU-MOSI &amp; CMU-MOSEI数据集说明 不论是对于CMU-MOSI还是CMU-MOSEI数据，实验人员已经对其中的每个样本都以-3到&#43;3的情感进行了打分。（其中-3代表的是强烈负面情绪，&#43;3代表的是强烈正面情绪）。
 同时，我们使用不同的度量标准来对模型进行评估，这些度量标准与之前工作中使用的保持一致：7分类准确率，2分类准确率，F1 分值，绝对平均误差以及模型类人关联率。
-IEMOCAP数据集 IEMOCAP是一个由10000个视频组成的人类情感分析数据集。情感标签一共有四种（happy,sad,angry &amp; neutral)。不同于CMU-MOSI和CMU-MOSEI，这是一个多标签任务。IEMOCAP数据集中的声音和视觉特征分别以12.5和15hz从剪辑片段中采集。
+IEMOCAP数据集 IEMOCAP是一个由10000个视频组成的人类情感分析数据集。情感标签一共有四种(happy,sad,angry &amp; neutral)。不同于CMU-MOSI和CMU-MOSEI，这是一个多标签任务。IEMOCAP数据集中的声音和视觉特征分别以12.5和15hz从剪辑片段中采集。
 特征提取 语言文本 通过预训练的Glove word embedding方法将词语映射成为300维的向量。
 视觉特征 使用Facet方法预测了35个面部动作单元，这记录了面部肌肉的移动以代表每帧图像的基本和高级情感。
 声音特征 使用COVAREP来提取低维的声音特征。该特征包括12个Mel倒谱系数、基音跟踪和浊音/清音分割特征、声门源参数、峰值斜率参数和最大频散系数。特征维数为74.
@@ -53,7 +53,7 @@ ULGM ULGM方法基于多模态情感标注和模态特征表示来产生单一�
 $$ C^p_i=\frac{\sum^N_{j=1}I(y_i(j)&gt;0)\cdot F^g_{ij}}{\sum^N_{j=1}I(y_i(j)&gt;0)}\tag{1} $$
 $$ C^n_i=\frac{\sum^N_{j=1}I(y_i(j)&lt;0)\cdot F^g_{ij}}{\sum^N_{j=1}I(y_i(j)&lt;0)}\tag{2} $$
 式中$i\in{m,t,a,v}$,$N$是训练样本的个数，$I(\cdot)$是指示器函数。$F^g_{ij}$是第$i$个模态中第$j$个样本的全局特征表示。
-对于模态特征表示，我们使用$L2$ 归一化来计算$F^_i$和聚类中心的距离： $$ D^p_i = \frac{||F^_i-C^p_i||^2_2}{\sqrt{d_i}} \tag{3} $$
+对于模态特征表示，我们使用$L2$ 归一化来计算$F_i^*$ $$ D^p_i = \frac{||F^*_i-C^p_i||^2_2}{\sqrt{d_i}} \tag{3} $$
 $$ D^n_i = \frac{||F^*_i-C^n_i||^2_2}{\sqrt{d_i}} \tag{4} $$" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://LIN-SHANG.github.io/post/%E6%AF%95%E8%AE%BE%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/" /><meta property="article:section" content="post" />
@@ -127,7 +127,7 @@ $$ D^n_i = \frac{||F^*_i-C^n_i||^2_2}{\sqrt{d_i}} \tag{4} $$" />
 <p>不论是对于CMU-MOSI还是CMU-MOSEI数据，实验人员已经对其中的每个样本都以-3到+3的情感进行了打分。（其中-3代表的是强烈负面情绪，+3代表的是强烈正面情绪）。</p>
 <p>同时，我们使用不同的度量标准来对模型进行评估，这些度量标准与之前工作中使用的保持一致：7分类准确率，2分类准确率，F1 分值，绝对平均误差以及模型类人关联率。</p>
 <h3 id="iemocap数据集">IEMOCAP数据集</h3>
-<p>IEMOCAP是一个由10000个视频组成的人类情感分析数据集。情感标签一共有四种（happy,sad,angry &amp;  neutral)。不同于CMU-MOSI和CMU-MOSEI，这是一个多标签任务。IEMOCAP数据集中的声音和视觉特征分别以12.5和15hz从剪辑片段中采集。</p>
+<p>IEMOCAP是一个由10000个视频组成的人类情感分析数据集。情感标签一共有四种(happy,sad,angry &amp;  neutral)。不同于CMU-MOSI和CMU-MOSEI，这是一个多标签任务。IEMOCAP数据集中的声音和视觉特征分别以12.5和15hz从剪辑片段中采集。</p>
 <h1 id="特征提取">特征提取</h1>
 <h3 id="语言文本">语言文本</h3>
 <p>通过预训练的Glove word embedding方法将词语映射成为300维的向量。</p>
@@ -146,9 +146,9 @@ $$</p>
 C^n_i=\frac{\sum^N_{j=1}I(y_i(j)&lt;0)\cdot F^g_{ij}}{\sum^N_{j=1}I(y_i(j)&lt;0)}\tag{2}
 $$</p>
 <p>式中$i\in{m,t,a,v}$,$N$是训练样本的个数，$I(\cdot)$是指示器函数。$F^g_{ij}$是第$i$个模态中第$j$个样本的全局特征表示。</p>
-<p>对于模态特征表示，我们使用$L2$ 归一化来计算$F^<em>_i$和聚类中心的距离：
+<p>对于模态特征表示，我们使用$L2$ 归一化来计算$F_i^*$
 $$
-D^p_i = \frac{||F^</em>_i-C^p_i||^2_2}{\sqrt{d_i}} \tag{3}
+D^p_i = \frac{||F^*_i-C^p_i||^2_2}{\sqrt{d_i}} \tag{3}
 $$</p>
 <p>$$
 D^n_i = \frac{||F^*_i-C^n_i||^2_2}{\sqrt{d_i}} \tag{4}
@@ -172,8 +172,8 @@ $$</p>
 <p>具体而言，公式7的引入是为了避免“0值问题”。在公式6中，当$y_m$等于0时，产生的单模态监督值$y_s$通常也是零。然后联合考虑以上关系，我们通过等权求和能够得到单模态监督值：
 $$
 \begin{align}
-y_s &amp;= \frac{y_m*\alpha_s}{2\alpha_m}+\frac{y_m+\alpha_s-\alpha_m}{2}   \<br>
-&amp;= y_m+\frac{\alpha_s-\alpha_m}{2}*\frac{y_m+\alpha_m}{\alpha_m}    \<br>
+y_s &amp;= \frac{y_m*\alpha_s}{2\alpha_m}+\frac{y_m+\alpha_s-\alpha_m}{2}   \\<br>
+&amp;= y_m+\frac{\alpha_s-\alpha_m}{2}*\frac{y_m+\alpha_m}{\alpha_m}   \\<br>
 &amp;= y_m + \delta_{sm}
 \end{align}
 \tag{8}
@@ -184,20 +184,20 @@ $$
 $$
 y_s^{(i)}=
 \begin{cases}
-y_m,&amp;\text{$i$=1}  \<br>
-\frac{i-1}{i+1}y_s^{i-1}+\frac{2}{i+1}y^i_s,&amp;\text{$i$&gt;1} \<br>
-\tag{9}</p>
-<p>\end{cases}
+y_m,&amp;\text{$i$=1}  \\<br>
+\frac{i-1}{i+1}y_s^{i-1}+\frac{2}{i+1}y^i_s,&amp;\text{$i$&gt;1} \\<br>
+\end{cases}
+\tag{9}
 $$
-其中$s\in{t,a,v}$。$y_s^i$是在$i_{th}$轮迭代新产生的单模态标签。$y_s^{(i)}$是$i_{th}$轮迭代后最终单模态标签。</p>
+其中$s\in \{t,a,v\}$。$y_s^i$是在$i_{th}$轮迭代新产生的单模态标签。$y_s^{(i)}$是$i_{th}$轮迭代后最终单模态标签。</p>
 <p>形式上，假设总迭代次数是$n$,推算可得$y_s^i$的权重是$\frac{2i}{(n)(n+1)}$。这意味着在更新过程中，后产生的单模态标签参与模态标签更新的权重大于之前产生的权重。这同我们的日常经验相符合。因为产生的单模态标签是之前所有更新的累计和，故此标签在经历足够多的迭代次数后会趋于稳定(在我们的实验中次数大概是20次)。然后，单模态任务的训练过程会逐渐变得稳固。单模态标签更新的策略在算法一中予以展示。</p>
 <h3 id="优化函数">优化函数</h3>
-<p>最后我们使用$$L1Loss$$作为基本的优化函数。对于单模态任务，我们使用单标签和多标签的差别作为损失函数的权重。这表明网络应该更加关注差异较大的样本。
-$$
-L = \frac{1}{N}\sum^{N}<em>{i}(|\hat{y}^i_m-y^i_m|+\sum^{{t,a,v}}</em>{s}W^i_s*|\hat{y}^i_s-y^{(i)}_s|)
+<p>最后我们使用$L1Loss$作为基本的优化函数。对于单模态任务，我们使用单标签和多标签的差别作为损失函数的权重。这表明网络应该更加关注差异较大的样本。</p>
+<p>$$
+L = \frac{1}{N}\sum^N_i(|\hat{y}^i_m-y^i_m|+\sum^{{t,a,v}}_{s}W^i_s*|\hat{y}^i_s-y^{(i)}_s|)
 \tag{10}
-$$
-公式中$N$是训练样本的个数，$W^i_s = tanh(|y^{(i)}_s-y_m|)$是辅助任务$s$的第$i_{th}$个样本的权重。</p>
+$$</p>
+<p>公式中$N$是训练样本的个数，$W^i_s = tanh(|y_s^{(i)}-y_m|)$是辅助任务$s$的第$i_{th}$个样本的权重。</p>
 <hr>
 <h3 id="algorithm-1-unimodal-supervisions-update-policy"><strong>Algorithm 1</strong> Unimodal Supervisions Update Policy</h3>
 <hr>
@@ -209,10 +209,10 @@ $$
 <p>3:  Initialize global representations $F_t^g=0$,$F_a^g=0$,$F_v^g=0$,$F_m^g=0$</p>
 <p>4:  <strong>for</strong> $n\in[1,end]$ <strong>do</strong></p>
 <p>5:  	<strong>for</strong>  mini-batch in dataLoader <strong>do</strong></p>
-<p>6:  		Compute mini-batch modality representations$F_t^<em>$,$F_a^</em>$,$F_v^<em>$,$F_m^</em>$</p>
+<p>6:  		Compute mini-batch modality representations$F_t^*$,$F_a^*$,$F_v^*$,$F_m^*$</p>
 <p>7:  		Compute loss $L$ using Equation(10)</p>
-<p>8:		  Compute parameters gradient $\frac{\part L}{\part \theta}$</p>
-<p>9:  		Update model parameters: $\theta = \theta - \eta\frac{\part L}{\part \theta}$</p>
+<p>8:		  Compute parameters gradient $\frac{\partial L}{\partial \theta}$</p>
+<p>9:  		Update model parameters: $\theta = \theta - \eta\frac{\partial L}{\partial \theta}$</p>
 <p>10:  	  <strong>if</strong>  $n\neq1$  then</p>
 <p>11: 			Compute relative distance values $\alpha_m$,$\alpha_t$,$\alpha_a$,and $\alpha_v$ using Equation(1-5)</p>
 <p>12:			Compute $y_t$,$y_a$,$y_v$ using Equation(8)</p>
@@ -222,7 +222,7 @@ $$
 <p>16:	 <strong>end for</strong></p>
 <p>17:  <strong>end for</strong></p>
 </blockquote>
-<p><img src="C:%5CUsers%5CLynn_Lawson%5CDesktop%5C%E5%9B%BD%E5%9F%BA%E9%87%91%5CSelf_MM.png" alt="s"></p>
+<p><img src="https://z3.ax1x.com/2021/04/05/cQ6sVs.md.png" alt="cQ6sVs.md.png"></p>
 <h1 id="对模型的理解">对模型的理解</h1>
 <p>我认为模型的更新分为两个步骤：</p>
 <p>1.模型的参数更新</p>
@@ -230,8 +230,12 @@ $$
 <h3 id="模型的参数更新">模型的参数更新</h3>
 <p>当raw_data 经过初步的特征提取为一些初始test,audio,video特征向量之后，分别会经过Bert，和两个sLSTM，这三个特征提取模块进行更抽象的特征提取。其中：
 $$
-F_t = BERT(I_t;\theta_t^{bert})\in R^{d_t} \<br>
-F_a = sLSTM(I_a;\theta_a^{lstm})\in R^{d_t} \<br>
+F_t = BERT(I_t;\theta_t^{bert})\in R^{d_t}
+$$
+$$
+F_a = sLSTM(I_a;\theta_a^{lstm})\in R^{d_t}
+$$
+$$
 F_v = sLSTM(I_v;\theta_a^{lstm})\in R^{d_v}
 $$
 然后通过简单的concatenate形成$F_m$,同时为了更加准确的预测，采用一个线性映射将$F_m$通过下式：
@@ -244,10 +248,10 @@ $$
 $$
 很显然单单只是如此简单的一个特征提取加上特征拼接以及线性映射就作为最终的预测向量，精确度会大打折扣。于是作者引入了自监督学习机制。</p>
 <h3 id="想法来源">想法来源</h3>
-<p>通过对$F_t$,$F_a$,$F_v$进行线性映射可以得到$F_t^<em>$,$F_a^</em>$,$F_v^<em>$,通过对比研究发现，多模态的融合特征表示$F_m^</em>$与正情感中心的距离相较于负情感中心更近，而单模态的特征表示$F_s^*$则反之，然而，经验上来说，如果能够让$y_s$同$y_m$之间的偏差$\delta_{sm}$趋于0，即让单模态和多模态的预测结果尽量一致，让各自偏差估计相抵消，对最终的预测结果$\hat{y}_m$大有裨益。ULGM应运而生，通过该方法可以通过自监督的机制对特征向量进行迭代更新。</p>
-<p><img src="C:%5CUsers%5CLynn_Lawson%5CDesktop%5C%E5%9B%BD%E5%9F%BA%E9%87%91%5Csource_of_idea.png" alt=""></p>
+<p>通过对$F_t$,$F_a$,$F_v$进行线性映射可以得到$F_t^*$,$F_a^*$,$F_v^*$,通过对比研究发现，多模态的融合特征表示$F_m^*$与正情感中心的距离相较于负情感中心更近，而单模态的特征表示$F_s^*$则反之，然而，经验上来说，如果能够让$y_s$同$y_m$之间的偏差$\delta_{sm}$趋于0，即让单模态和多模态的预测结果尽量一致，让各自偏差估计相抵消，对最终的预测结果$\hat{y}_m$大有裨益。ULGM应运而生，通过该方法可以通过自监督的机制对特征向量进行迭代更新。</p>
+<p><img src="https://z3.ax1x.com/2021/04/05/cQ6Dbj.png" alt="cQ6Dbj.png"></p>
 <h3 id="特征向量的更新">特征向量的更新</h3>
-<p>在计算了$F_t$,$F_a$,$F_v$之后，同多模态任务一样，经过两次线性映射分别得到$F_t^<em>$,$F_a^</em>$,$F_v^*$和 $\hat{y}_t$,$\hat{y}_a$,$\hat{y}_v$。然后根据公式10计算loss函数。同时让loss函数对$\theta$参数进行求偏导，之后对于$\theta$进行参数更新。</p>
+<p>在计算了$F_t$,$F_a$,$F_v$之后，同多模态任务一样，经过两次线性映射分别得到$F_t^*$,$F_a^*$,$F_v^*$和 $\hat{y}_t$,$\hat{y}_a$,$\hat{y}_v$。然后根据公式10计算loss函数。同时让loss函数对$\theta$参数进行求偏导，之后对于$\theta$进行参数更新。</p>
 <p>如果这是第一次迭代计算， 用 $F_s^*$更新$F_s^g$, 其中 $s \in {m,t,a,v}$。</p>
 <p>如果这不是第一次迭代计算，用公式(1-5)计算 $\alpha_m$,$\alpha_t$,$\alpha_a$,和$\alpha_v$，再用公式（8）计算$y_t$,$y_a$,$y_v$ ，最后用公式(9)（基于动量的更新策略）计算$y_t^{(n)}$,$y_a^{(n)}$,$y_v^{(n)}$ ，同时再用$F_s^*$更新$F_s^g$, 其中 $s \in {m,t,a,v}$。</p>
 <h3 id="我的困惑">我的困惑</h3>
@@ -261,6 +265,42 @@ $$
     </div>
     <div class="post-footer">
       
+      
+<script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #eee8e8;
+}
+</style>
     </div>
   </article>
 

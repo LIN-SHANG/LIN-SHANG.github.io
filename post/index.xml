@@ -22,7 +22,7 @@
 CMU-MOSEI数据集 CMU-MOSEI也是一个情感分析数据集，它由23454个Youtube上面的影评视频剪辑而成。（数据量大概是CMU-MOSI的10倍。未对齐的CMU-MOSEI序列数据集中的声音和视觉特征分别以20Hz和15hz的频率从剪辑视频中采集。
 CMU-MOSI &amp;amp; CMU-MOSEI数据集说明 不论是对于CMU-MOSI还是CMU-MOSEI数据，实验人员已经对其中的每个样本都以-3到+3的情感进行了打分。（其中-3代表的是强烈负面情绪，+3代表的是强烈正面情绪）。
 同时，我们使用不同的度量标准来对模型进行评估，这些度量标准与之前工作中使用的保持一致：7分类准确率，2分类准确率，F1 分值，绝对平均误差以及模型类人关联率。
-IEMOCAP数据集 IEMOCAP是一个由10000个视频组成的人类情感分析数据集。情感标签一共有四种（happy,sad,angry &amp;amp; neutral)。不同于CMU-MOSI和CMU-MOSEI，这是一个多标签任务。IEMOCAP数据集中的声音和视觉特征分别以12.5和15hz从剪辑片段中采集。
+IEMOCAP数据集 IEMOCAP是一个由10000个视频组成的人类情感分析数据集。情感标签一共有四种(happy,sad,angry &amp;amp; neutral)。不同于CMU-MOSI和CMU-MOSEI，这是一个多标签任务。IEMOCAP数据集中的声音和视觉特征分别以12.5和15hz从剪辑片段中采集。
 特征提取 语言文本 通过预训练的Glove word embedding方法将词语映射成为300维的向量。
 视觉特征 使用Facet方法预测了35个面部动作单元，这记录了面部肌肉的移动以代表每帧图像的基本和高级情感。
 声音特征 使用COVAREP来提取低维的声音特征。该特征包括12个Mel倒谱系数、基音跟踪和浊音/清音分割特征、声门源参数、峰值斜率参数和最大频散系数。特征维数为74.
@@ -31,7 +31,7 @@ ULGM ULGM方法基于多模态情感标注和模态特征表示来产生单一�
 $$ C^p_i=\frac{\sum^N_{j=1}I(y_i(j)&amp;gt;0)\cdot F^g_{ij}}{\sum^N_{j=1}I(y_i(j)&amp;gt;0)}\tag{1} $$
 $$ C^n_i=\frac{\sum^N_{j=1}I(y_i(j)&amp;lt;0)\cdot F^g_{ij}}{\sum^N_{j=1}I(y_i(j)&amp;lt;0)}\tag{2} $$
 式中$i\in{m,t,a,v}$,$N$是训练样本的个数，$I(\cdot)$是指示器函数。$F^g_{ij}$是第$i$个模态中第$j$个样本的全局特征表示。
-对于模态特征表示，我们使用$L2$ 归一化来计算$F^_i$和聚类中心的距离： $$ D^p_i = \frac{||F^_i-C^p_i||^2_2}{\sqrt{d_i}} \tag{3} $$
+对于模态特征表示，我们使用$L2$ 归一化来计算$F_i^*$ $$ D^p_i = \frac{||F^*_i-C^p_i||^2_2}{\sqrt{d_i}} \tag{3} $$
 $$ D^n_i = \frac{||F^*_i-C^n_i||^2_2}{\sqrt{d_i}} \tag{4} $$</description>
     </item>
     
